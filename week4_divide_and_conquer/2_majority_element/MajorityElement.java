@@ -3,14 +3,26 @@ import java.io.*;
 
 public class MajorityElement {
     private static int getMajorityElement(int[] a, int left, int right) {
-        if (left == right) {
+        int max=0;
+		if (left == right) {
             return -1;
         }
         if (left + 1 == right) {
             return a[left];
         }
-        //write your code here
-        return -1;
+        for(int i =0;i<a.length;i++)
+			max = a[i]>max?a[i]:max;
+		
+		int elements[] = new int[max+1];
+		
+		for(int i =0;i<a.length;i++)
+			elements[a[i]]++;
+		
+		for(int i =1;i<elements.length;i++)
+			if(elements[i]>a.length/2)
+				return 1;
+		
+		return -1;
     }
 
     public static void main(String[] args) {
