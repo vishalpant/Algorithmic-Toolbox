@@ -5,18 +5,23 @@ public class DifferentSummands {
         List<Integer> summands = new ArrayList<Integer>();
         for(int i=1; i <=n; i++)
 		{
-			
-			if(i<=n)
+			n-=i;
+			if(n<=i)
+			{
+				summands.add(n+i);
+				
+			}
+			else if(n==0)
 			{
 				summands.add(i);
+				break;
 				
 			}
 			else
 			{
-				summands.add(n);
-				
+				summands.add(i);
 			}
-			n-=i;
+			
 		}
         return summands;
     }
