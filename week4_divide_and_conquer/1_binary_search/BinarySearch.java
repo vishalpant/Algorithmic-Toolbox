@@ -7,15 +7,13 @@ public class BinarySearch {
         int left = 0, right = a.length-1;
         while(left<=right)
 		{
-			int mid =  left +(right-left)/2;
-			if(x == a[mid])
-				return mid;
-			else if(x > a[mid])
-			{
+			int mid =  (right+left)/2;
+			if(x > a[mid])
 				left = mid+1;
-			}
-			else
+			else if (x < a[mid])
 				right = mid-1;
+			else 
+				return mid;
 		}
 
         return -1;
