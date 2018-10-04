@@ -10,19 +10,18 @@ public class MajorityElement {
         if (left + 1 == right) {
             return a[left];
         }
-        for(int i =0;i<a.length;i++)
-			max = a[i]>max?a[i]:max;
-		
-		int elements[] = new int[max+1];
-		
+        Arrays.sort(a);
+		int mid = a[a.length/2];
+		int count =0;
 		for(int i =0;i<a.length;i++)
-			elements[a[i]]++;
+			if (a[i]==mid)
+				count++;
+		if(count>a.length/2)
+			return mid;
+		else
+			return -1;
 		
-		for(int i =1;i<elements.length;i++)
-			if(elements[i]>a.length/2)
-				return 1;
 		
-		return -1;
     }
 
     public static void main(String[] args) {
